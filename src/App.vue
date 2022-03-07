@@ -1,10 +1,18 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import Basic from './components/Basic.vue'
 import Computed from './components/Computed.vue'
 import Essential from './components/Essential.vue'
 import Cycle from './components/Cycle.vue'
+import Refdemo from './components/Refdemo.vue'
 
+const childrenText = ref('子组件还没有传值过来呢~')
+
+function handleSon(sonValue) {
+  console.log('父组件接收中...')
+  childrenText.value = sonValue
+}
 </script>
 
 <template>
@@ -19,4 +27,6 @@ import Cycle from './components/Cycle.vue'
     <el-divider />
     <Cycle />
   </div>
+  <Refdemo title="我的 Vue 学习之旅" @accept-son="handleSon" />
+  <div class="">{{ childrenText }}</div>
 </template>
