@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, nextTick, ref } from 'vue'
+import { useCounterStore } from '../store/counter'
 
 // ref 
 // const booom = ref({
@@ -8,10 +9,11 @@ import { reactive, nextTick, ref } from 'vue'
 
 const booom = {
   foo: ref(100),
-  bar: ref(200)
+  bar: ref(200),
 }
 
-const numCount = ref(147)
+const numCount = useCounterStore()
+console.log('numCount', numCount)
 
 function incre() {
   // booom转换为value
@@ -19,6 +21,10 @@ function incre() {
   // numCount.value++
   booom.foo.value++
   booom.bar.value++
+
+  // 状态管理
+  numCount.count++
+  numCount.increment()
   
   // 更新后调用函数
   nextTick(() => {
@@ -33,7 +39,7 @@ function incre() {
 </script>
 
 <template>
-  <span class="w-full text-2xl font-600 text-transparent p-2 my-2 bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text">
+  <span class="colorful-title">
     响应式基础
   </span>
   <el-button type="success" @click="incre">增加</el-button>
@@ -41,4 +47,5 @@ function incre() {
   <div>{{ numCount }}</div> -->
   <div>{{ booom.foo }}</div>
   <div>{{ booom.bar }}</div>
+  <div>{{ numCount.count }}</div>
 </template>

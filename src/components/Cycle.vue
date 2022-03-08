@@ -47,7 +47,7 @@
   })
 </script>
 <template>
-  <span class="w-full text-2xl font-600 text-transparent p-2 my-2 bg-gradient-to-br from-green-500 to-blue-500 bg-clip-text">
+  <span class="colorful-title">
     生命周期
   </span>
   <li v-for="{title, dsc} of lifeCycle" :key="title">{{ title }} - {{ dsc }}</li>

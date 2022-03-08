@@ -46,9 +46,9 @@ const styleObject = ref({
 </script>
 
 <template>
-  <div class="text-lg font-600">计算属性</div>
+  <div class="colorful-title">计算属性</div>
   <div>有推送的书本：</div>
   <div>{{ publishedBook }}</div>
-  <el-button @click.ctrl="changeName">改变名字（需要按着ctrl）</el-button>
+  <el-button type="success" @click.ctrl="changeName">改变名字（需要按着ctrl）</el-button>
   <div :style="styleObject">全称：{{ fullName }}</div>
 </template>

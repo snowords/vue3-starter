@@ -1,32 +1,20 @@
 <script setup>
-import { ref } from 'vue'
-// import HelloWorld from './components/HelloWorld.vue'
-import Basic from './components/Basic.vue'
-import Computed from './components/Computed.vue'
-import Essential from './components/Essential.vue'
-import Cycle from './components/Cycle.vue'
-import Refdemo from './components/Refdemo.vue'
+import { useRouter, useRoute } from 'vue-router'
 
-const childrenText = ref('子组件还没有传值过来呢~')
+const router = useRouter()
 
-function handleSon(sonValue) {
-  console.log('父组件接收中...')
-  childrenText.value = sonValue
+function toHome() {
+  router.push({name: 'home'})
+}
+function toLogin() {
+  router.push({name: 'login'})
 }
 </script>
 
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld class="" msg="Hello Vue 3 + Vite" /> -->
-  <div class="w-1/2 m-auto h-full p-4 bg-gray-600 text-gray-100">
-    <Basic />
-    <el-divider />
-    <Computed />
-    <el-divider />
-    <Essential />
-    <el-divider />
-    <Cycle />
+  <div class="fixed m-2">
+    <el-button type="primary" @click="toHome">到首页</el-button>
+    <el-button type="primary" @click="toLogin">动画demo</el-button>
   </div>
-  <Refdemo title="我的 Vue 学习之旅" @accept-son="handleSon" />
-  <div class="">{{ childrenText }}</div>
+  <router-view></router-view>
 </template>

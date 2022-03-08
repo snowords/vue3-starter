@@ -24,7 +24,7 @@
   ])
 </script>
 <template>
-  <div class="text-lg bold">循环渲染</div>  
+  <div class="colorful-title">循环渲染</div>  
   <li v-for="{ id, name, age, address } of items" :key="id">
     {{ msg }}, {{ name }} {{ age }} {{ address }}
   </li>
