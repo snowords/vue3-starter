@@ -4,7 +4,7 @@ import { createApp } from 'vue'
 // 导入 pinia router
 import { createPinia } from 'pinia'
 
-import router from './router/index.js'
+import router from './router'
 
 // 导入 windicss 插件
 import 'virtual:windi.css'
